@@ -19,3 +19,13 @@ const NO_OF_HIGH_SCORES = 10;
   
     localStorage.setItem('highScores', JSON.stringify(highScores));
   }
+  function changescore() {
+    const jsonScores = JSON.parse(localStorage.getItem('highScores')) || [];
+    console.log(jsonScores)
+    if (jsonScores !== null) {
+      const bestScore = jsonScores[0];
+  document.getElementById("bestscore").innerHTML = bestScore.score;
+     } else {
+      document.getElementById("bestscore").innerHTML = "Haven't Played Yet";
+    }
+  }

@@ -8,10 +8,7 @@
     <script src="cookie.js"></script>
     <script src="gameControls.js"></script>
     <script>
-        document.addEventListener('keyup', function(e){
-          if(e.keyCode == 82)
-            window.location.reload();
-        })
+        
     </script>
     <script src="jawsjs.js"></script>
     <script src="Block.js"></script>
@@ -39,7 +36,7 @@
     </script>
 
   </head>
-  <body>
+  <body onload="changescore()">
     <table border="0" class="mainTable">
       <tr>
 	<td class="menuCell">
@@ -92,9 +89,14 @@
 	      
 	      <canvas class="gameCanvas" id="gameCanvas" width="600" height="500" onclick="onClickEvent(event)" class="gameCanvas">Your browser does not natively support Html5, or the Canvas Tag. Using this browser is slowing the progress of the web. Please get a modern browser, such as Google Chrome or Mozzila FireFox</canvas>
 	    </div>
+      <div class="controlsTitle">
+	      <br/>
+	      <b>Best High Score:</b><br/>
+        <div id="bestscore" class="menuItem"></div>
 	    <div class="controlsTitle">
 	      <br/>
 	      <b>Controls:</b><br/>
+      </div>
 	      <table border="1" cellpadding="3" class="controlsTable">
 		<tr class="controlsTableHeader">
 		  <td width="80">Move Block</td>
