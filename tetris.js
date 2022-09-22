@@ -24,6 +24,16 @@ function TetrisControl() {
 	tetris.update();
     };
 }
+function formatDate(date) {
+	var hours = date.getHours();
+	var minutes = date.getMinutes();
+	var ampm = hours >= 12 ? 'pm' : 'am';
+	hours = hours % 12;
+	hours = hours ? hours : 12; // the hour '0' should be '12'
+	minutes = minutes < 10 ? '0'+minutes : minutes;
+	var strTime = hours + ':' + minutes + ' ' + ampm;
+	return date.getMonth()+1 + "/" + date.getDate() + "/" + date.getFullYear() + " " + strTime;
+  }
 
 function Tetris(controller) {
     var background = null,
@@ -102,13 +112,18 @@ function Tetris(controller) {
 		    gameEndTty.addLine('GOOD GAME!!!');
 		    gameEndTty.addLine('');
 		    gameEndTty.addLine('');
-				const NO_OF_HIGH_SCORES = 10;
+				
+					
+					  
+					  var d = new Date();
+					  var date = formatDate(d);
+					  const NO_OF_HIGH_SCORES = 10;
 					const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 					const lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.score ?? 0;
 				const savescore = scoreObject.score
 					if (savescore > lowestScore) {
-						const name = prompt('You got a highscore! Enter name:');
-						const newScore = { savescore, name };
+						
+						const newScore = { savescore, date };
 						newhighscore = true
 						saveHighScore(newScore, highScores);
 					}
@@ -136,10 +151,12 @@ function Tetris(controller) {
 					
 		    //sendScoreRequest(scoreObject.score);
 gameEndTty.addLine('Press R to restart');
-			    if (e.code === "R") {
+document.addEventListener('keyup', function(e){
+	if(e.keyCode == 82)
+	 
 				document.getElementById('gameEndContainer').setAttribute('class', 'gameEndOutputHidden');
 				controller.restart();
-			}
+			})
 		}
 	    }
 	} else if (paused) {
