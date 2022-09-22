@@ -132,9 +132,7 @@ function Tetris(controller) {
 					gameEndTty.addLine('New High Score!');
 					gameEndTty.addLine('To Check High Score');
 					gameEndTty.addLine('Go To High Scores Tab');
-				} else if (scoreObject.won) {
-			gameEndTty.addLine('You Win!');
-		    } else {
+				}  else {
 			gameEndTty.addLine('Better Luck Next Time');
 		    }
 		    gameEndTty.addLine('');
