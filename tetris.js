@@ -115,7 +115,7 @@ function Tetris(controller) {
 					  
 					  var d = new Date();
 					  var date = formatDate(d);
-					  console.log(date)
+					  
 					  const NO_OF_HIGH_SCORES = 10;
 					const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 					const lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.score ?? 0;
@@ -123,7 +123,7 @@ function Tetris(controller) {
 					if (savescore > lowestScore) {
 						newhighscore = true
 						const newScore = { savescore, date };
-						
+						console.log(newScore)
 						saveHighScore(newScore, highScores);
 					}
 				if (newhighscore) {

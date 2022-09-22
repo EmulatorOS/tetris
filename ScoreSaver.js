@@ -10,6 +10,7 @@
     highScores.splice(NO_OF_HIGH_SCORES);
   
     localStorage.setItem('highScores', JSON.stringify(highScores));
+    console.log(JSON.stringify(highScores))
   }
   function changescore() {
     const jsonScores = localStorage.getItem('highScores')
