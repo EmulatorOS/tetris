@@ -119,8 +119,8 @@ function Tetris(controller) {
 					  const NO_OF_HIGH_SCORES = 10;
 					const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 					const lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.score ?? 0;
-				const savescore = scoreObject.score
-					if (savescore > lowestScore) {
+				const score = scoreObject.score
+					if (score > lowestScore) {
 						newhighscore = true
 						const newScore = { score, date };
 						console.log(newScore)
