@@ -127,7 +127,8 @@ function Tetris(controller) {
 						newhighscore = true
 						saveHighScore(newScore, highScores);
 					}
-				if (newhighscore = true) {
+				if (newhighscore) {
+					console.log("new")
 					gameEndTty.addLine('New High Score!');
 					gameEndTty.addLine('To Check High Score');
 					gameEndTty.addLine('Go To High Scores Tab');
