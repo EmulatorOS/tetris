@@ -109,14 +109,13 @@ function Tetris(controller) {
 
 		    // make the game end visible
 		    document.getElementById('gameEndContainer').setAttribute('class', 'gameEndOutputVisible');
-		    gameEndTty.addLine('GOOD GAME!!!');
-		    gameEndTty.addLine('');
-		    gameEndTty.addLine('');
+		   
 				
 					
 					  
 					  var d = new Date();
 					  var date = formatDate(d);
+					  console.log(date)
 					  const NO_OF_HIGH_SCORES = 10;
 					const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 					const lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.score ?? 0;
@@ -133,6 +132,9 @@ function Tetris(controller) {
 					gameEndTty.addLine('To Check High Score');
 					gameEndTty.addLine('Go To High Scores Tab');
 				}  else {
+					gameEndTty.addLine('GOOD GAME!!!');
+					gameEndTty.addLine('');
+					gameEndTty.addLine('');
 			gameEndTty.addLine('Better Luck Next Time');
 		    }
 		    gameEndTty.addLine('');
