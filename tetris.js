@@ -122,9 +122,9 @@ function Tetris(controller) {
 					const lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.score ?? 0;
 				const savescore = scoreObject.score
 					if (savescore > lowestScore) {
-						
-						const newScore = { savescore, date };
 						newhighscore = true
+						const newScore = { savescore, date };
+						
 						saveHighScore(newScore, highScores);
 					}
 				if (newhighscore) {
@@ -153,8 +153,7 @@ gameEndTty.addLine('Press R to restart');
 document.addEventListener('keyup', function(e){
 	if(e.keyCode == 82)
 	 
-				document.getElementById('gameEndContainer').setAttribute('class', 'gameEndOutputHidden');
-				controller.restart();
+	window.location.reload();
 			})
 		}
 	    }
