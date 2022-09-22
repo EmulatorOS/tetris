@@ -122,7 +122,7 @@ function Tetris(controller) {
 				const savescore = scoreObject.score
 					if (savescore > lowestScore) {
 						newhighscore = true
-						const newScore = { savescore, date };
+						const newScore = { score, date };
 						console.log(newScore)
 						saveHighScore(newScore, highScores);
 					}
