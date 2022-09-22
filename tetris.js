@@ -43,7 +43,7 @@ function Tetris(controller) {
 
     continueButton = null,
     restartButton = null,
-
+		newhighscore = false
     lastTime = null,
     dTime = null,
 
@@ -102,7 +102,21 @@ function Tetris(controller) {
 		    gameEndTty.addLine('GOOD GAME!!!');
 		    gameEndTty.addLine('');
 		    gameEndTty.addLine('');
-		    if (scoreObject.won) {
+				const NO_OF_HIGH_SCORES = 10;
+					const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+					const lowestScore = highScores[NO_OF_HIGH_SCORES - 1]?.score ?? 0;
+				const savescore = scoreObject.score
+					if (savescore > lowestScore) {
+						const name = prompt('You got a highscore! Enter name:');
+						const newScore = { savescore, name };
+						newhighscore = true
+						saveHighScore(newScore, highScores);
+					}
+				if (newhighscore = true) {
+					gameEndTty.addLine('New High Score!');
+					gameEndTty.addLine('To Check High Score');
+					gameEndTty.addLine('Go To High Scores Tab');
+				} else if (scoreObject.won) {
 			gameEndTty.addLine('You Win!');
 		    } else {
 			gameEndTty.addLine('Better Luck Next Time');
@@ -119,9 +133,9 @@ function Tetris(controller) {
 			gameEndTty.addLine(scoreObject.score.toString());
 		    gameEndTty.addLine('');
 		    gameEndTty.addLine('');
-			checkHighScore(scoreObject.score);
+					
 		    //sendScoreRequest(scoreObject.score);
-gameEndTty.addLine('Press R to restart:');
+gameEndTty.addLine('Press R to restart');
 			    if (e.code === "R") {
 				document.getElementById('gameEndContainer').setAttribute('class', 'gameEndOutputHidden');
 				controller.restart();
